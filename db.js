@@ -24,7 +24,7 @@ const db = {
         resolve()
       })
     }))
-  }
+  },
 }
 
 module.exports = db
