@@ -1,0 +1,6 @@
+{
+  "name": "nodejs-file",
+  "version": "0.0.1",
+  "main": "cli.js",
+  "license": "MIT"
+}
