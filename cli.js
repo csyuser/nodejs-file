@@ -11,8 +11,7 @@ program
   .description('add a task')
   .action((command) => {
     let words = command.args.join(' ')
-    console.log(words);
-    api.add(words+'\n')
+    api.add(words).then(()=>{console.log('添加成功')}).catch(()=>{console.log('添加失败')})
   });
 
 program.parse(process.argv);

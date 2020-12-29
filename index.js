@@ -1,23 +1,12 @@
-const fs = require('fs')
-const p = require('path')
-const home = process.env.HOME || require('os').homedir()
-const dbPath = p.join(home,'.todo')
+const db = require('./db')
 
 
-module.exports.add=(title)=>{
+
+module.exports.add = async (title) => {
   //读取之前的任务
-  fs.readFile(dbPath,{flag:'a+'},(err,data)=>{
-    if (err) return
-    let list = []
-    try{
-      list = JSON.parse(data.toString())
-    } catch (err2){list = []}
-    list.push(title)
-    fs.writeFile(dbPath,list,(err3)=>{
-      if (err3) console.log('出错啦')
-      console.log('chenggongla')
-    })
-  })
+  let list = await db.read()
   //添加一个title任务
+  list.push({title, done: false})
   //保存任务到文件
+  await db.save(list)
 }
