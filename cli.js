@@ -11,14 +11,14 @@ program
 program
   .command('clear')
   .description('clear tasks')
-  .action((command) => {
+  .action(() => {
     api.clear().then(()=>{console.log('删除成功')}).catch(()=>{console.log('删除失败')})
   });
 program
   .command('list')
   .description('list tasks')
-  .action((command) => {
-    api.showAll()
+  .action(() => {
+   void api.showAll()
   });
 
 program.parse(process.argv);

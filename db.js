@@ -16,7 +16,7 @@ const db = {
       })
     })
   },
-  save(list,path = dbPath) {
+  write(list, path = dbPath) {
     return new Promise(((resolve, reject) => {
       let string = JSON.stringify(list)
       fs.writeFile(path, string, (err) => {
