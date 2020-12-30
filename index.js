@@ -13,8 +13,8 @@ module.exports.add = async (title) => {
 module.exports.clear = async () => {
   await db.write([])
 }
-
 //选择task进行操作
+
 function save (list,string){
   db.write(list).then(() => {console.log(string + '成功')}).catch(() => {console.log(string + '失败')})
 }
