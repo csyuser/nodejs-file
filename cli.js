@@ -9,7 +9,6 @@ program
   .command('add')
   .description('add a task')
   .action((command) => {
-    console.log(command)
     let words = command.args.join(' ')
     api.add(words).then(() => {console.log('添加成功')}).catch(() => {console.log('添加失败')})
   })
